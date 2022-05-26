@@ -16,7 +16,6 @@ We ask data scientist do want to join **Idoven** to work with anonymised patient
 - Show how they will work on the signal and plot the signal in appropriate manner to be read by a doctor
 - Identify the heart beat of the signal, average and total heart beat in the signal
 - Identify the complex QRS in the signal and been able to annotate on it
-- Validate the current annotations with the signals and QRS complex identification 
 
 As a result we expect a github project with and extructure that will include:
 - Reference documentation used
