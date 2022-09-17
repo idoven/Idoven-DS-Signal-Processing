@@ -6,6 +6,8 @@ The dataset comprises 21837 clinical 12-lead ECG records of 10 seconds length fr
 5237	STTC	ST/T Change
 4901	CD	Conduction Disturbance
 2649	HYP	Hypertrophy
+
+
 The waveform files are stored in WaveForm DataBase (WFDB) format with 16 bit precision at a resolution of 1μV/LSB and a sampling frequency of 500Hz (records500/). For the user’s convenience we also release a downsampled versions of the waveform data at a sampling frequency of 100Hz (records100/).
 
 All relevant metadata is stored in ptbxl_database.csv with one row per record identified by ecg_id. It contains 28 columns that can be categorized into:
