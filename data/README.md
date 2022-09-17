@@ -1,7 +1,7 @@
 The dataset comprises 21837 clinical 12-lead ECG records of 10 seconds length from 18885 patients, where 52% are male and 48% are female with ages covering the whole range from 0 to 95 years (median 62 and interquantile range of 22). The value of the dataset results from the comprehensive collection of many different co-occurring pathologies, but also from a large proportion of healthy control samples. The distribution of diagnosis is as follows, where we restrict for simplicity to diagnostic statements aggregated into superclasses (note: sum of statements exceeds the number of records because of potentially multiple labels per record):
 
-#Records	Superclass	Description
-9517	NORM	Normal ECG
+|Records	|Superclass	|Description|
+|9517	NORM	|Normal |ECG|
 5473	MI	Myocardial Infarction
 5237	STTC	ST/T Change
 4901	CD	Conduction Disturbance
