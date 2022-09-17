@@ -1,1 +1,1 @@
-wget https://physionet.org/static/published-projects/ptbdb/ptb-diagnostic-ecg-database-1.0.0.zip
+wget https://storage.cloud.google.com/physionetchallenge2021-public-datasets/WFDB_Ningbo.tar.gz
