@@ -1,1 +1,1 @@
-wget https://storage.cloud.google.com/physionetchallenge2021-public-datasets/WFDB_Ningbo.tar.gz
+wget -r -N -c -np https://physionet.org/files/ptb-xl/1.0.2/
