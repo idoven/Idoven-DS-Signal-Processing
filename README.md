@@ -33,6 +33,8 @@ In case it's helpful, here's some other tips for you:
 
 You can ask questions. This isn't a "bonus points if they ask questions" thing, just that we'll answer what we can if you need us. Like we would when working together.
 
+We like to have a real work example work flow, we wencorage you to do a pull request and send the pull request for evaluation. 
+
 You can request more information/data, but we'd rather you didn't. If you really need more, let us know, but there'd need to be a compelling reason for it.
 ## Summary
 We want to see what it's like to work with you, and the quality of work you'd produce. This is a chance for both sides to see how that is.
