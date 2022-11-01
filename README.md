@@ -18,7 +18,7 @@ The next 'What to do' data science tasks have been achieved after looking the da
 
 * diagnostic_superclasses_statistics.ipynb: It's a jupyter notebook running on google colab to do some statistics identifying whether a normal 12-lead ECG waveform can be differentiated (a distinctly different pattern) from all other diagnostic superclasses MI, STTC, CD, and HYP.
 
-* anomaly_detection.ipynb: It's a jupyter notebook running in google colab to build a function able to alert whether a 12-lead ECG-waveform is deviated from normal behavior by using a LSTM (Long short-term memory) Autoencoder. Click [here](https://en.wikipedia.org/wiki/Long_short-term_memory) to know more about LSTM.
+* anomaly_detection.ipynb: It's a jupyter notebook running in google colab to build a function able to alert whether a 12-lead ECG-waveform is deviated from normal behavior by using a LSTM (Long short-term memory) Autoencoder. Click [here](https://en.wikipedia.org/wiki/Autoencoder) to know more about an Autoencoder and [here](https://en.wikipedia.org/wiki/Long_short-term_memory) to know more about a LSTM layer.
 
 ## Comments
 * download_data.ipynb is a jupyter notebook to download the files of PTB-XL
