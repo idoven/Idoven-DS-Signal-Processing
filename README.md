@@ -1,45 +1,28 @@
-# Data Science Task
-This page has details of the task we'd like you to complete for **Idoven** data scientist job offering.
+# Dataset
+It's a 12-lead (I, II, III, aVL, aVR, aVF, V1–V6) ECG-waveform dataset comprising 21837 records from 18885 patients of 10 seconds length. It's assumed at rest. 
+Although the original dataset has a sampling frequency of 400 Hz, it's been used the downsampled version at a sampling frequency of 100 Hz (100 samples per second). 
+Seeing as a numpy array, each patient has a shape of 1000 × 12 values. Therefore, it's a multi-label dataset preceded by 71 unique SCP-ECG statements as classes performed by up to two cardiologists. Although the original dataset can contain up to three types of statements (diagnostic, form and rhythm), I have used the 5 diagnostic superclasses as diagnostic labels: NORM (Normal ECG), MI (Myocardial Infarction), STTC (ST/T Change), CD (Conduction Disturbance) and HYP (Hypertrophy).
 
-The electrocardiogram (ECG) is a non-invasive representation of the electrical activity of the heart from electrodes placed on the surface of the torso. The standard 12-lead ECG has been widely used to diagnose a variety of cardiac abnormalities such as cardiac arrhythmias, and predicts cardiovascular morbidity and mortality. The early and correct diagnosis of cardiac abnormalities can increase the chances of successful treatments. However, manual interpretation of the electrocardiogram is time-consuming, and requires skilled personnel with a high degree of training.
+Click [here](https://physionet.org/content/ptb-xl/1.0.2/) to know more about the dataset PTB-XL (a large publicly available electrocardiography dataset).
 
-Automatic detection and classification of cardiac abnormalities can assist physicians in the diagnosis of the growing number of ECGs recorded. Over the last decade, there have been increasing numbers of attempts to stimulate 12-lead ECG classification. Many of these algorithms seem to have the potential for accurate identification of cardiac abnormalities. However, most of these methods have only been tested or developed in single, small, or relatively homogeneous datasets. 
+# ECG interpretation
+An electrocardiogram (ECG) is a non-invasive representation of the electrical activity of the heart from electrodes placed on the surface of the torso. 
+An ECG provides information about the heart rate and rhythm but its interpretation, the ability to determine whether the ECG waves and intervals (P-waves, PR-segments, QRS-complex, ST-segments, T-waves, PP-intervals, RR-intervals, TT-intervals, and many more) don't work properly, is time-consuming, and requires skilled personnel with a high degree of training. For instance, a myocardial infarction can be seen when there is a rise in the ST-segment, changes in the shape or flipping of T-waves, new Q-waves, or a new left bundle branch block, in any of the 12-leads.
 
+Click [here](https://en.wikipedia.org/wiki/Electrocardiography) to know more about ECG.
 
-## What to do
-We've tried to keep this task as similar to working here as possible. With that in mind, we think you'll know better than us what can be achieved with this. So there's no specific "thing" we want you to find or do. We want you to explore it as you would if you were working here.
+# Data science tasks
+The next 'What to do' data science tasks have been achieved after looking the dataset:
 
-We'd like you to analyse it and give us some insights. The insights should be useful and actionable in some way.
+* heart_rate_variability.ipynb: It's a jupyter notebook running in google colab to build a function able to print the heart rate and the RR-interval variability from a 12-lead ECG-waveform. Click [here](https://en.wikipedia.org/wiki/Heart_rate_variability) to know more about heart rate variability. 
 
-We ask data scientist do want to join **Idoven** to work with anonymised patient data, and on the basis of this data be able to:
-- Be able to read the _ECG_ files and corresponding annotations
-- Show how they will work on the signal and plot the signal in appropriate manner to be read by a doctor
-- Identify the heart beat of the signal, average and total heart beat in the signal
-- Identify the complex QRS in the signal and been able to annotate on it
+* diagnostic_superclasses_statistics.ipynb: It's a jupyter notebook running on google colab to do some statistics identifying whether a normal 12-lead ECG waveform can be differentiated (a distinctly different pattern) from all other diagnostic superclasses MI, STTC, CD, and HYP.
 
-As a result we expect a github project with and extructure that will include:
-- Reference documentation used
-- Jupyter Notebook, in an running environment, Colab, Docker.
-- An explanation of the work done and lessons learned.
+* anomaly_detection.ipynb: It's a jupyter notebook running in google colab to build a function able to alert whether a 12-lead ECG-waveform is deviated from normal behavior by using a LSTM (Long short-term memory) Autoencoder. Click [here](https://en.wikipedia.org/wiki/Autoencoder) to know more about an Autoencoder and [here](https://en.wikipedia.org/wiki/Long_short-term_memory) to know more about a LSTM layer.
 
-
-## Timeframe
-It would be great if you could have this done within a week. If that's not doable for you, let us know early.
-
-Also, we don't know how long this should take you, but we're not looking to reward the person that spends the most time on it. We believe in working smarter not harder.
-
-## Tips
-In case it's helpful, here's some other tips for you:
-
-You can ask questions. This isn't a "bonus points if they ask questions" thing, just that we'll answer what we can if you need us. Like we would when working together.
-
-We like to have a real work example work flow, we wencorage you to do a pull request and send the pull request for evaluation. 
-
-You can request more information/data, but we'd rather you didn't. If you really need more, let us know, but there'd need to be a compelling reason for it.
-## Summary
-We want to see what it's like to work with you, and the quality of work you'd produce. This is a chance for both sides to see how that is.
-
-We will be making a decision based on these tests, so do give it your best.
-
-Thanks for giving this a go, we can't wait to see what you come up with.
-
+## Comments
+* download_data.ipynb is a jupyter notebook to download the files of PTB-XL
+* utils.py is a helper python script listing some functions used across the jupyter notebooks
+* requirements.txt is a text file listing the modules and packages required by the jupyter notebooks. It can be generated by the jupyter notebook requirements.ipynb
+* checkpoint.pt is a file where the state of the anomaly detection model is shown in case of restarting the training process.
+* The helper function load_ECGs loads a .npy file from a folder records100 (or generates it if the file doesn't exist) listing the physical signals of some ECGs. The folder records100 contains three subfolders (training, validation and test) that are necessary for the jupyter notebook anomaly detection.ipynb
