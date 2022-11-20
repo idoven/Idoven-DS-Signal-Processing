@@ -1,5 +1,5 @@
 # Data Science Task 
-###Author: Vincent Lunot
+### Author: Vincent Lunot
 &nbsp;   
 Information about the challenge is available in the file `challenge.md`.
 
