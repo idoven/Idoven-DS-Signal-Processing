@@ -17,6 +17,8 @@ During this task, I **has been able to** extract some features from ECG signal, 
 
 With respect to the **time needed** to develop this task. I want to comment that due to the computational cost of downloading all the data and process it, I finally decided to start with a simple task instead of a machine learning task as I wanted at first.
 
+To sum up, I was able to see that cardiac world and the ECG signal, have many peculiarities and information that we can play with and obtain very usefull applications. 
+
 ##  **Next steps**
 
 *   **Test the code and the feature extraction in a large variety of ECG signals.**
@@ -33,8 +35,7 @@ Feature Selection: First of all, I will see the correlation between all the feat
 
 Train data, test data and validation data. After evaluating the data that PTB-XL is providing us we can see that there is patients with different anomalies. So, with the aim of obtaining a more accurate results. It is really important to have a balanced data in the model, in other words to have equitative the quantity of patients with each disease in the different sets of data.
 
-Once all these steps have been carried out, we can start to try the different machine learning/deep learning models that exhist nowadays and are in the benchmark.
-Thanks for giving this a go, we can't wait to see what you come up with.
+Once all these steps have been carried out, we can start to try the different machine learning/deep learning models that exhist nowadays and are in the benchmark. Thank you to those models the patient and doctors will have a positive impact in their lives. As Doctor, this will help to easing the workload giving them more time to focus on the patient. As patient, maybe they will have a faster result of their illness so It can be treated in a fastest way.
 
 # **References and Credits** 💳
 Pan, J. and Tompkins, W., 1985. A Real-Time QRS Detection Algorithm. IEEE Transactions on Biomedical Engineering, BME-32(3), pp.230-236
