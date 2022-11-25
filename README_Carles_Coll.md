@@ -1,0 +1,10 @@
+# Work done
+The result of my work on this challenge can be found in the notebook Carles_Coll_Code.ipynb. The detailed explanation of the work done is written in the notebook. I also add another notebook with all the raw tests in case they are of interest. 
+
+# Lessons learned and conclusion
+
+Overall, the challenge turned out to be both easier and harder than expected. The tasks turned out to be simpler than expected, mainly because the python package wfdb has all the necessary functions to read, plot and obtain heart rate and QRS from the raw signals, and because the python script example_physionet.py provided in the dataset contains de code necessary to read the annotations in the csv file. But at the same time, I lost too much time at the beginning trying to understand what I was supposed to do, because the challenge instructions are not very precise and I misunderstood the term “annotation”, which I thought was a type of file in the dataset instead of the labels assigned to each sample. I also spent too much time trying to understand the details of the wfdb API. For all these reasons, I haven’t been able to finish the challenge.
+
+A this moment, I am still not sure about all the data contained in the records. I am also not sure about what functions should be used to read the heart beats and QRS, and I am not even sure if the records contain the necessary information to achieve this. 
+
+My conclusion is that I have underestimated the complexity of the tasks and the availability of useful information, and as a consequence, I have not been able to finish the challenge, which I initially thought was achievable. I feel like I failed. However, I am amazed that this dataset is publicly available, and I think it has a lot of potential as a researching environment. I also have to mention that prior to this challenge I had a bad memory of jupyter notebook, but after looking for information about how to correctly use it, I can say I like it and I believe they can be very useful in some situations. 
