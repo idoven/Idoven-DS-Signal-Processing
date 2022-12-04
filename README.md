@@ -12,6 +12,7 @@ Automatic detection and classification of cardiac abnormalities can assist physi
 *   To investigate more about ECG and the relevant paper that it has in the heart issues detection.
 *   To be more confident with the ECG area.
 *   To apply the knowledge acquired during my master studies in the subject Biosignals and Machine Learning.
+
 ## **Comments**
 During this task, I **has been able to** extract some features from ECG signal, that later will be relevant to detect some anomalies. Anomalies as for example Arrhythmia or any other heart disease. 
 
@@ -25,11 +26,11 @@ In the other hand, if we compare the accuracy with the exact same model, we can 
 
 ##  **Next steps**
 
-*   **Test the code and the feature extraction in a large variety of ECG signals.**
-
-Now due to the lack of time and the time consuming task, I was unable to test the code in the whole PTB-XL dataset.
-
-*   **Introduce Machine Learning/Deep Learning in future steps:**
+* Test more elaborated and individualized mother machine/deep learning models
+* Work with all classes
+* Use ECG images instead of singals to train models:
+This is another point I was thinking of. If doctor uses the ECG plot to detect illness, why not to follow the same path with deep learning?
+*   **How to introduce Machine Learning/Deep Learning in future steps:**
 
 At first, introduce Machine Learning/Deep Learning to detect automatically the different peaks. In that way we will be able to later on use another Machine Learning/Deep Learning model to detect heart anomalies. 
 
