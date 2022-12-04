@@ -15,9 +15,13 @@ Automatic detection and classification of cardiac abnormalities can assist physi
 ## **Comments**
 During this task, I **has been able to** extract some features from ECG signal, that later will be relevant to detect some anomalies. Anomalies as for example Arrhythmia or any other heart disease. 
 
-With respect to the **time needed** to develop this task. I want to comment that due to the computational cost of downloading all the data and process it, I finally decided to start with a simple task instead of a machine learning task as I wanted at first.
+We were able to see how the way we are working with the data can affect highly the time needed to train the models. In this case, working with spectograms instead of the raw ECG data can affect a lot the time needed.
 
-To sum up, I was able to see that cardiac world and the ECG signal, have many peculiarities and information that we can play with and obtain very usefull applications. 
+Train and predict the spectogram in 0 sec (comvert all ECGs to spectograms 2sec).
+Train and predict the ECG in 40 sec.
+As we can see, this seems to not be a huge difference, but we have to take into account that we are working with a small part of the data and classe,s so if in future we will use the whole data this can affect a lot the time needed. Also it is really important to note that additional step to pass the raw ecg to the spectogram it took 2 sec for all the data we were working with.
+
+In the other hand, if we compare the accuracy with the exact same model, we can see that it is better with the spectogram signal instead of with the raw ecg data. Another reason apart from the time, it is added to choose the spectogram over the raw ecg.
 
 ##  **Next steps**
 
