@@ -26,11 +26,11 @@ In the other hand, if we compare the accuracy with the exact same model, we can 
 
 ##  **Next steps**
 
-* Test more elaborated and individualized mother machine/deep learning models
-* Work with all classes
-* Use ECG images instead of singals to train models:
+* **Test more elaborated and individualized mother machine/deep learning models**
+* **Work with all classes**
+* **Use ECG images instead of singals to train models:**
 This is another point I was thinking of. If doctor uses the ECG plot to detect illness, why not to follow the same path with deep learning?
-*   **How to introduce Machine Learning/Deep Learning in future steps:**
+* **How to introduce Machine Learning/Deep Learning in future steps:**
 
 At first, introduce Machine Learning/Deep Learning to detect automatically the different peaks. In that way we will be able to later on use another Machine Learning/Deep Learning model to detect heart anomalies. 
 
