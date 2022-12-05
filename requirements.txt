@@ -1,0 +1,3 @@
+py-ecg-detectors
+wfdb
+jupyterlab
