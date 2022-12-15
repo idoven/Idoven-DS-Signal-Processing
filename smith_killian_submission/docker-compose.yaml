@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+
+  idoven-dev-env:
+    init: true
+    build:
+      context: .
+    ports:
+      - 8888:8888
+    volumes:
+      - ./project:/home/guest/project
+
+volumes:
+  project:
+    external: true

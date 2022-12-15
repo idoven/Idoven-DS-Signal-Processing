@@ -1,0 +1,11 @@
+jupyterlab-spellchecker  # Add spell checking for markdown
+numpy                    # Vector operations
+scipy                    # Scientific functions
+scikit-learn             # Machine learning tools
+wfdb                     # Waveform tools
+pywavelets               # Wavelet tools
+pandas                   # Dataframes
+matplotlib               # Generic plotting
+seaborn                  # Statistical plotting
+tensorflow               # Neural network tools
+keras                    # Frontend for tensorflow
