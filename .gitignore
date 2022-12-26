@@ -1,0 +1,6 @@
+physionet.org/
+data_model.csv
+mi_classification.ipynb
+.vscode/
+annotations/
+lightning_logs/
