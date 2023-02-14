@@ -1,0 +1,6 @@
+data/*
+wandb*
+*.pyc
+Idoven*
+checkpoints*
+.vscode/
