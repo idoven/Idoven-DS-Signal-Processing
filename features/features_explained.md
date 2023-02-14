@@ -1,0 +1,46 @@
+- PR interval: The time interval between the P wave and the R wave.
+- P max: The maximum amplitude of the P wave.
+- P to R: The ratio of the amplitude of the P wave to the R wave.
+- P to Q: The difference in amplitude between the P wave and the Q wave.
+- ST interval: The time interval between the S wave and the T wave.
+- T max: The maximum amplitude of the T wave.
+- R plus: The fraction of beats that have a positive value at the R wave.
+- R minus: The fraction of beats that have a negative value at the R wave.
+- T to R: The ratio of the amplitude of the T wave to the R wave.
+- T to S: The difference in amplitude between the T wave and the S wave.
+- P to T: The ratio of the amplitude of the P wave to the T wave.
+- P skew: The skewness of the P wave.
+- P kurt: The kurtosis of the P wave.
+- T skew: The skewness of the T wave.
+- T kurt: The kurtosis of the T wave.
+- Activity: The activity of the ECG signal.
+- Mobility: The mobility of the ECG signal.
+- Complexity: The complexity of the ECG signal.
+- QRS len: The length of the QRS complex.
+- QRS diff: The difference between the minimum and maximum values of the QRS complex.
+- QS diff: The difference in amplitude between the Q wave and the S wave.
+- QRS kurt: The kurtosis of the QRS complex.
+- QRS skew: The skewness of the QRS complex.
+- QRS minmax: The difference between the minimum and maximum values of the QRS complex.
+- P std: The standard deviation of the P wave.
+- T std: The standard deviation of the T wave.
+- RMSSD (Root mean square of successive differences): measures the square root of the average of the squared differences between successive RR intervals. This metric provides information about the difference between consecutive heartbeats, and is widely used to assess the HRV.
+- NN50 (Number of pairs of successive NN intervals that differ by more than 50ms): counts the number of pairs of successive NN intervals that differ by more than 50ms.
+- pNN50 (Proportion of NN50 divided by total number of NN intervals): calculates the proportion of NN50 divided by the total number of NN intervals.
+- NN20 (Number of pairs of successive NN intervals that differ by more than 20ms): counts the number of pairs of successive NN intervals that differ by more than 20ms.
+- pNN20 (Proportion of NN20 divided by total number of NN intervals): calculates the proportion of NN20 divided by the total number of NN intervals.
+- SDNN (Standard deviation of NN intervals): calculates the standard deviation of the NN intervals. This metric provides information about the variability of the heart rate.
+- mRRi (mean length of RR interval): calculates the mean length of the RR intervals.
+- stdRRi (standard deviation of RR intervals): calculates the standard deviation of the RR intervals.
+- mHR (mean heart rate): calculates the mean heart rate, in ms.
+- **`r_mean`**: This is the mean value of the R-peak values in the signal.
+- **`r_std`**: This is the standard deviation of the R-peak values in the signal.
+- **`beats_to_length`**: This is the ratio of the number of R-peaks in the signal to the length of the signal.
+- **`filtered_r`**: This is the number of R-peaks that have an inter-beat time that is less than 0.5 times the mean inter-beat time.
+- **`rel_filtered_r`**: This is the ratio of the number of filtered R-peaks to the total number of R-peaks in the signal.
+- **`hr_max`**: The maximum heart rate value.
+- **`hr_min`**: The minimum heart rate value.
+- **`hr_mean`**: The mean heart rate value.
+- **`hr_median`**: The median heart rate value.
+- **`hr_mode`**: The mode of the heart rate values (the most frequently occurring value).
+- **`hr_std`**: The standard deviation of the heart rate values.

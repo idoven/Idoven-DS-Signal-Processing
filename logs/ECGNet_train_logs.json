@@ -1,0 +1,9 @@
+{
+  "train_loss": 0.023030604406879228,
+  "train_mean_accuracy": 0.9913867758923345,
+  "train_roc_score": 0.9994398975026787,
+  "test_loss": 4.012316703796387,
+  "test_mean_accuracy": 0.8254308337214719,
+  "test_roc_score": 0.8287001544732112
+}
+    
