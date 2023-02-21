@@ -60,8 +60,7 @@ def find_heartbeat_peaks(peaks_arr: list):
     return safe_heartbeats, safe_heartbeats_peaks
 
 
-
-def find_plateau(diff, start, tolerance=2, min_slope=0.1, orientation='left'):
+def find_plateau(diff, start, tolerance=1, min_slope=1.0, orientation='left'):
     """
     Find a plateau in the signal. The plateau is reached when the required slope of 0.1 is not fulfilled anymore.
     """
@@ -71,7 +70,7 @@ def find_plateau(diff, start, tolerance=2, min_slope=0.1, orientation='left'):
         for i in range(start):
             if diff[start-i] > -min_slope:
                 tol_counter = tol_counter+1
-                valley_index = start-i+tol_counter
+                valley_index = start-i #+tol_counter
             else:
                 tol_counter = 0    
             
@@ -81,7 +80,7 @@ def find_plateau(diff, start, tolerance=2, min_slope=0.1, orientation='left'):
         for i in range(len(diff) - start - 1):
             if diff[start+i] < min_slope:
                 tol_counter = tol_counter+1
-                valley_index = start+i-tol_counter
+                valley_index = start+i #-tol_counter
             else:
                 tol_counter = 0
                 
@@ -89,11 +88,12 @@ def find_plateau(diff, start, tolerance=2, min_slope=0.1, orientation='left'):
                 break
     else:
         print('Choose orientation between "left" and "right".')
+        
     return valley_index
 
 
 
-def find_valley(diff, start, tolerance=2, min_dist=5, orientation='left'):
+def find_valley(diff, start, tolerance=1, min_dist=3, orientation='left'):
     """
     Find a valley in the signal. The valley is reached when the signal is not falling and the distance min_dist is reached.
     """
@@ -103,7 +103,7 @@ def find_valley(diff, start, tolerance=2, min_dist=5, orientation='left'):
         for i in range(start):
             if diff[start-i] <= 0 and i > min_dist:
                 tol_counter = tol_counter+1
-                valley_index = start-i+tol_counter
+                valley_index = start-i #+tol_counter
             else:
                 tol_counter = 0
             if tol_counter > tolerance:
@@ -113,13 +113,14 @@ def find_valley(diff, start, tolerance=2, min_dist=5, orientation='left'):
            
             if diff[start+i] >= 0 and i > min_dist:
                 tol_counter = tol_counter+1
-                valley_index = start+i-tol_counter
+                valley_index = start+i #-tol_counter
             else:
                 tol_counter = 0
             if tol_counter > tolerance:
                 break
     else:
         print('Choose orientation between "left" and "right".')
+        
     return valley_index
 
 
@@ -134,19 +135,38 @@ def find_qrs_in_signal(X_patient_lead, peak, tolerance=1):
         lim_left = peak-limit
         peak_relative_id = limit
     
-    if peak + limit > X_patient_lead.shape[0]:
+    if peak + limit < X_patient_lead.shape[0]:
         lim_right = peak + limit
     else:
         lim_right = X_patient_lead.shape[0]
-
-    diff = X_patient_lead[lim_left:lim_right] - X_patient_lead[lim_left-1:lim_right-1]
+    #print('lim_left ' + str(lim_left) + ' q_start ' + str(q_start + lim_left)
+    diff = X_patient_lead[lim_left:lim_right-1] - X_patient_lead[lim_left+1:lim_right]
     q_peak = find_valley(diff, peak_relative_id, orientation='left')
     q_start = find_plateau(diff, q_peak+1, orientation='left')
+    
 
     s_peak = find_valley(diff, peak_relative_id, orientation='right')
     s_end = find_plateau(diff, s_peak+1, orientation='right')
-    
+        
     return q_start + lim_left, s_end + lim_left
+
+
+def find_qrs_complex(X_patient, heartbeat, heartbeat_peaks):
+    qrs_start = []
+    qrs_end = []
+    for i, hb in enumerate(heartbeat):
+        qrs_start_i = []
+        qrs_end_i = []
+        for j, hbp_j in enumerate(heartbeat_peaks):
+            for k, hbp_k in enumerate(hbp_j):
+                if np.abs(hb-hbp_k) < 3:
+                    qrs_start_hbp, qrs_end_hbp = find_qrs_in_signal(X_patient[:,k], peak=hbp_k)
+                    qrs_start_i.append(qrs_start_hbp)
+                    qrs_end_i.append(qrs_end_hbp)
+        qrs_start.append(np.median(qrs_start_i))
+        qrs_end.append(np.median(qrs_end_i))
+        
+    return qrs_start, qrs_end
 
 
 
