@@ -15,7 +15,7 @@ def run_crossvalidation_experiment(X, Y, config):
     for i in range(10):
         config['run_name'] = config['model_name'] + '_crossval_' + str(i)
         model_handler = ModelHandler(X.shape[2], X.shape[1], 5, config)
-        train_generator, test_generator = get_cross_validation_split(X, Y, 0)
+        train_generator, test_generator = get_cross_validation_split(X, Y, i)
         model_handler.train(train_generator)
         results = model_handler.validate(train_generator, 'test')
         print(results)
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     with open(args.config) as file:
         config = yaml.full_load(file)
 
-    path = './data_dummy/physionet.org/files/ptb-xl/1.0.2/'
+    path = './data/physionet.org/files/ptb-xl/1.0.2/'
     sampling_rate = 100
     channels = ["I", "II", "III", "AVL", "AVR", "AVF", "V1", "V2", "V3", "V4", "V5", "V6"]
 
