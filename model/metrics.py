@@ -8,7 +8,7 @@ class MetricsAggregator():
             self.results[m] = []
 
     def aggregate_results(self, results_dict: dict[str, float]):
-        for key, value in dict.items():
+        for key, value in results_dict.items():
             self.results[key].append(value)
 
     def calculate_mean_metrics(self):
