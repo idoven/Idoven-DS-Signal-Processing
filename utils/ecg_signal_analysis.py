@@ -3,7 +3,15 @@ import numpy as np
 from scipy import signal
 
 
-def find_peaks(X_patient, height=0.5, distance=5, prominence=0.5):
+def find_peaks(X_patient: np.array, height: float = 0.5, distance: int = 5, prominence: float = 0.5):
+    """
+    Find peaks in the normalized signal.
+    :param X_patient: X data for a single patient, Expected shape: [1000, 12]
+    :param height: min height of peaks
+    :param distance: min distance of peaks to each other
+    :param prominence: min relative height of peaks
+    :return: List of peaks
+    """
     peaks_list = []
     for i in range(X_patient.shape[1]):
         x = X_patient[:,i]
@@ -12,6 +20,11 @@ def find_peaks(X_patient, height=0.5, distance=5, prominence=0.5):
 
 
 def find_heartbeat_peaks(peaks_arr: list):
+    """
+    Find Peaks in the signal that are likely real heartbeats.
+    :param peaks_arr: array of peaks in the signal.
+    :return: safe_heartbeats (heartbeat locations), safe_heartbeats_peaks (filtered heartbeat peaks)
+    """
     heartbeat_peaks = []
     heartbeats = []
     
@@ -60,9 +73,16 @@ def find_heartbeat_peaks(peaks_arr: list):
     return safe_heartbeats, safe_heartbeats_peaks
 
 
-def find_plateau(diff, start, tolerance=1, min_slope=1.0, orientation='left'):
+def find_plateau(diff: list, start: int, tolerance: int = 1, min_slope: float = 1.0, orientation: str = 'left'):
     """
     Find a plateau in the signal. The plateau is reached when the required slope of 0.1 is not fulfilled anymore.
+
+    :param diff: list off differentials of signal
+    :param start: start searching point
+    :param tolerance: tolerance of indices of possible errors in slope
+    :param min_slope: minimum slope to not be a plateau
+    :param orientation: search 'left' or 'right' in signal
+    :return: index of plateau start
     """
     tol_counter = 0
     valley_index = start
@@ -92,10 +112,15 @@ def find_plateau(diff, start, tolerance=1, min_slope=1.0, orientation='left'):
     return valley_index
 
 
-
-def find_valley(diff, start, tolerance=1, min_dist=3, orientation='left'):
+def find_valley(diff: list, start: int, tolerance: int = 1, min_dist: int = 3, orientation: str = 'left'):
     """
     Find a valley in the signal. The valley is reached when the signal is not falling and the distance min_dist is reached.
+    :param diff: list off differentials of signal
+    :param start: start searching point
+    :param tolerance: tolerance of indices of possible errors in slope
+    :param min_dist: minimum distance to start point
+    :param orientation: search 'left' or 'right' in signal
+    :return: index of valley
     """
     tol_counter = 0
     valley_index = start
@@ -125,7 +150,13 @@ def find_valley(diff, start, tolerance=1, min_dist=3, orientation='left'):
 
 
 
-def find_qrs_in_signal(X_patient_lead, peak, tolerance=1):
+def find_qrs_in_signal(X_patient_lead, peak):
+    """
+    Find QRS complex in single channel.
+    :param X_patient_lead: Single lead signal of patient
+    :param peak: index of peak of signal
+    :return: start and end index of QRS complex
+    """
     limit = 10
     
     if peak - limit < 0:
@@ -152,6 +183,14 @@ def find_qrs_in_signal(X_patient_lead, peak, tolerance=1):
 
 
 def find_qrs_complex(X_patient, heartbeat, heartbeat_peaks):
+    """
+    Find the qrs complex in the ecg signal of a patient.
+    The function looks for the QRS close to all peaks that were detected and then takes the medium across all leads.
+    :param X_patient: All lead signals of one patient, expected shape: [1000, 12]
+    :param heartbeat: List of detected heartbeats.
+    :param heartbeat_peaks: list of all detected heartbeat peaks in all channels.
+    :return: list of all starting points of QRS curve, list of all end points of QRS curve
+    """
     qrs_start = []
     qrs_end = []
     for i, hb in enumerate(heartbeat):

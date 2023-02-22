@@ -1,6 +1,4 @@
 import numpy as np
-from scipy import sparse
-from scipy.sparse.linalg import spsolve
 from pywt import wavedec, waverec
 
 from scipy.signal import butter, lfilter, savgol_filter
