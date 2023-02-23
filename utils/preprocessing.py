@@ -1,6 +1,4 @@
 import numpy as np
-from pywt import wavedec, waverec
-
 from scipy.signal import butter, lfilter, savgol_filter
 
 
@@ -46,35 +44,4 @@ def normalize_signal(X_signal):
             #X_signal[i,:,k] = x + (1 - np.max(x))
             X_new[i,:,k] = x - np.mean(x)
     return X_new
-
-
-def denoise_signal(X_signal, dwt_transform='bior4.4', dlevels=9, cutoff_low=1, cutoff_high=8):
-    X_new = np.zeros_like(X_signal)
-    for i, x in enumerate(X_signal):
-        # print(i)
-        coeffs = wavedec(x, dwt_transform, level=dlevels)   # wavelet transform 'bior4.4'
-        # scale 0 to cutoff_low
-        for ca in range(0,cutoff_low):
-            coeffs[ca]=np.multiply(coeffs[ca],[0.0])
-        # scale cutoff_high to end
-        for ca in range(cutoff_high, len(coeffs)):
-            coeffs[ca]=np.multiply(coeffs[ca],[0.0])
-        X_new[i] = waverec(coeffs, dwt_transform) # inverse wavelet transform
-    return X_new
-
-
-def median_filter(X_signal, window_size=3):
-    X_new = np.zeros_like(X_signal)
-    for i, x_i in enumerate(X_signal):
-        for j, x in enumerate(x_i):
-            filtered_data = np.zeros(len(x))
-            for k in range(len(x)):
-                start = max(0, k - window_size // 2)
-                end = min(len(x), k + window_size // 2 + 1)
-                window = x[start:end]
-                filtered_data[k] = np.median(window)
-            X_signal[i][j] = filtered_data
-    return X_signal
-
-
 
