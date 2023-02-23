@@ -8,7 +8,7 @@ class MetricsAggregator():
         for m in metric_names:
             self.results[m] = []
 
-    def aggregate_results(self, results_dict: dict[str, float]):
+    def aggregate_results(self, results_dict: dict):
         for key, value in results_dict.items():
             self.results[key].append(value)
 

@@ -6,8 +6,8 @@ Make sure to navigate inside the folder 'Idoven-Data-Scientist' with
 `cd Idoven-Data-Scientist`. Then execute the following commands to run it:
 
 ### Docker
-* `build --network=host -t ecg_analysis .`
-* `run --rm -it -p 8888:8888 -p 5005:5005 -v ./data:/app/data ecg_analysis`
+* `docker build --network=host -t ecg_analysis .`
+* `docker run --rm -it -p 8888:8888 -p 5005:5005 -v ./data:/app/data ecg_analysis`
 
 ### Local pip environment
 * `pip install -r requirements.txt`
