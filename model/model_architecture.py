@@ -4,6 +4,7 @@ import torch.nn.functional as F
 
 
 class ECGNet(nn.Module):
+    """ Simple convolutional network to classify ECG signals."""
     def __init__(self, input_channels: int, signal_length: int, num_classes: int, config: dict):
         super(ECGNet, self).__init__()
         conv_kernels = int(config['conv_kernels'])
@@ -20,13 +21,9 @@ class ECGNet(nn.Module):
         self.activation = nn.Sigmoid()
 
     def forward(self, x):
-        # Max pooling over a (2, 2) window
-        # x = F.max_pool1d(F.relu(self.conv1(x)), 2)
         x = self.conv_net(x)
-        # If the size is a square, you can specify with a single number
-        # x = F.max_pool1d(F.relu(self.conv2(x)), 2)
         x = self.dropout(x)
-        x = torch.flatten(x, 1) # flatten all dimensions except the batch dimension
+        x = torch.flatten(x, 1)
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = self.fc3(x)

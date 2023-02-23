@@ -7,10 +7,12 @@ from model.model_architecture import ECGNet
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 class ModelHandler():
+    """This class handles the deep learning model for ECG signals."""
     def __init__(self, input_channels, signal_length, num_classes, config):
         self.model = ECGNet(input_channels, signal_length, num_classes, config).to(device)
         self.config = config
         mlflow.set_experiment(experiment_name='PTB_XL')
+        mlflow.end_run()
         mlflow.start_run(run_name=config['run_name'])
         mlflow.log_params(config)
 

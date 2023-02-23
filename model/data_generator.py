@@ -3,17 +3,17 @@ import pandas as pd
 import numpy as np
 
 class ECGDataset(torch.utils.data.Dataset):
-  'Characterizes a dataset for PyTorch'
-  def __init__(self, X, Y_labels):
+    """ Dataset of ECG signals to train a deep learning model."""
+    def __init__(self, X, Y_labels):
         'Initialization'
         self.X = X
         self.Y_labels = Y_labels
 
-  def __len__(self):
+    def __len__(self):
         'Denotes the total number of samples'
         return self.X.shape[0]
 
-  def __getitem__(self, index):
+    def __getitem__(self, index):
         'Generates one sample of data'
         # Load data and get label
         x = self.X[index]
@@ -23,6 +23,7 @@ class ECGDataset(torch.utils.data.Dataset):
 
 
 def get_cross_validation_split(X:pd.DataFrame, Y:pd.DataFrame, test_fold: int = 0):
+    """ Get one split of the cross validation experiment. Returns generators that can be used for model training."""
     batch_size = 8
     X_switched_channels = np.swapaxes(X, 1, 2)
     X_train = X_switched_channels[np.where(Y.strat_fold != test_fold)]

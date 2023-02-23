@@ -1,6 +1,7 @@
 import numpy as np
 
 class MetricsAggregator():
+    """ Class to aggregate metrics of crossvalidation runs."""
     def __init__(self, metric_names: list):
         self.results = {}
         self.metric_names = metric_names
