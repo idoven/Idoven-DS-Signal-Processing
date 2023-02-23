@@ -2,6 +2,8 @@
 To reproduce the results there are three different ways how to run the notebook.
 
 ## Installation
+Use the shell script `./download_download_data.sh` in the `./data/` folder to download the data if not already done.
+The dataset should then be located in ./data/physionet.org/files/ptb-xl/1.0.2/ .
 Make sure to navigate inside the folder 'Idoven-Data-Scientist' with 
 `cd Idoven-Data-Scientist`. Then execute the following commands to run it:
 
