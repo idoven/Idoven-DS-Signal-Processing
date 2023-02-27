@@ -1,6 +1,6 @@
 # Introduction
 
-This is an exporation and analysis of the PTB-XL dataset. I will explain te tasks done in this analysis here.
+This is an exporation and analysis of the PTB-XL dataset. I will explain te tasks done in this analysis in the following sections. The `requirements.txt` and `Dockerfile` are also included in this repository.
 
 # Dataset
 
@@ -38,7 +38,7 @@ The results indicate that height and weight is significantly different in normal
 
 # Diagnosis Classification
 
-The dataset contains diagnosis superclasses, and the signals and the annotations can be used to form a classification task. This is a multi-class classifcation task. There are some deep learning methods to solve this task. I have worked in the field of applied deep learning, however, I decided to take another route here. I used PCA dimension reduction alongside the SVM classifier to solve this task. One-vs-rest method is used in order to be able to employ the SVM classifier. This setup can have its own benefits because **after the training is done and it is time to make predictions, the only computation that has to be done is a matrix multiplication and a few weighted sums. This can be extremely computationaly efficient compared to deep learning methods, and can be used as an early and inexact diagnosis on an embedded device**. I have used a linear SVM classifier because using RBF SVM takes too long and doesn't fit into the time frame of the project. The accuracies for 5-fold classification are `78.195, 76.317, 76.363, 76.441, 75.392` with a mean value of `76.541`. Is it more likely that higher accuracies can be reached if non-linear SVM is used.
+The dataset contains diagnosis superclasses, and the signals and the annotations can be used to form a classification task. This is a multi-class classifcation task. There are some deep learning methods to solve this task. I have worked in the field of applied deep learning, however, I decided to take another route here. I extracted individual heartbeats and padded or cut them to have 85 values for each heartbeat. I then used PCA dimension reduction alongside the SVM classifier to solve this task. One-vs-rest method is used in order to be able to employ the SVM classifier. This setup can have its own benefits because **after the training is done and it is time to make predictions, the only computation that has to be done is a matrix multiplication and a few weighted sums. This can be extremely computationaly efficient compared to deep learning methods, and can be used as an early and inexact diagnosis on an embedded device**. I have used a linear SVM classifier because using RBF SVM takes too long and doesn't fit into the time frame of the project. The accuracies for 5-fold classification are `78.195, 76.317, 76.363, 76.441, 75.392` with a mean value of `76.541`. Is it more likely that higher accuracies can be reached if non-linear SVM is used.
 
 # Feature Visualization
 
