@@ -1,45 +1,52 @@
-# Data Science Task
-This page has details of the task we'd like you to complete for **Idoven** data scientist job offering.
+# Introduction
 
-The electrocardiogram (ECG) is a non-invasive representation of the electrical activity of the heart from electrodes placed on the surface of the torso. The standard 12-lead ECG has been widely used to diagnose a variety of cardiac abnormalities such as cardiac arrhythmias, and predicts cardiovascular morbidity and mortality. The early and correct diagnosis of cardiac abnormalities can increase the chances of successful treatments. However, manual interpretation of the electrocardiogram is time-consuming, and requires skilled personnel with a high degree of training.
+This is an exporation and analysis of the PTB-XL dataset. I will explain te tasks done in this analysis in the following sections. The `requirements.txt` and `Dockerfile` are also included in this repository.
 
-Automatic detection and classification of cardiac abnormalities can assist physicians in the diagnosis of the growing number of ECGs recorded. Over the last decade, there have been increasing numbers of attempts to stimulate 12-lead ECG classification. Many of these algorithms seem to have the potential for accurate identification of cardiac abnormalities. However, most of these methods have only been tested or developed in single, small, or relatively homogeneous datasets. 
+# Dataset
 
+The `PTB-XL` dataset contains both 100Hz and 500Hz ECG recordings with the duration of 10 seconds. Some patient information is also included in this dataset. The 100Hz data was used in this analysis. We load the dataset using the code the dataset creators have provided.
 
-## What to do
-We've tried to keep this task as similar to working here as possible. With that in mind, we think you'll know better than us what can be achieved with this. So there's no specific "thing" we want you to find or do. We want you to explore it as you would if you were working here.
+# Displaying the Signals
 
-We'd like you to analyse it and give us some insights. The insights should be useful and actionable in some way.
+The recordings have 12 channels, and important patient information along with the signals have to be shown approprietly to the doctor to make a valid diagnosis. For this reason, I have used Jupyter Notebook widgets to create a simple UI that takes in the record number and displays patient information and the signals, and an indicator of the position of the peak or the `R` section. An example plot is shown in `Image 1`. The signals are denoised and scaled before they are displayed. The denoising process contains a high-pass filter to remove the drift from the signals. The scaling is done so that the signals don't intersect with each other and be easier to read. For peak detection, the peak finder algorithm from `Scipy` signal processing library is used.
 
-We ask data scientist do want to join **Idoven** to work with anonymised patient data, and on the basis of this data be able to:
-- Be able to read the _ECG_ files and corresponding annotations
-- Show how they will work on the signal and plot the signal in appropriate manner to be read by a doctor
-- Identify the heart beat of the signal, average and total heart beat in the signal
-- Identify the complex QRS in the signal and been able to annotate on it
+![Image1](panel-example.png)
+> Image 1: Patient information and ECG signals panel
 
-As a result we expect a github project with and extructure that will include:
-- Reference documentation used
-- Jupyter Notebook, in an running environment, Colab, Docker.
-- An explanation of the work done and lessons learned.
+# Statistical Analysis
 
+In order to have a statistical view at this dataset, I have analyzed the relation of age, height, and weight of the patients with the diagnosis. First, I have created a violin plot containing the distribution of age considering each diagnosis superclass. The plot is shown in `Image 2`. As can be seen from the figure, Healthier people have a lower age average compared to other diagnosis classes. One interpretation might be that heart problems start to show themselves in advanced ages.
 
-## Timeframe
-It would be great if you could have this done within a week. If that's not doable for you, let us know early.
+![Image2](age-relation.png)
+> Image 2: Violin plot of the distribution of age in each superclass
 
-Also, we don't know how long this should take you, but we're not looking to reward the person that spends the most time on it. We believe in working smarter not harder.
+Afterward, the relation between diagnosis superclass and height and weight are tested using statistical tests, specifically t-test. The alpha level used for the tests is 0.001. The p-value of the tests is shown below:
 
-## Tips
-In case it's helpful, here's some other tips for you:
+```
+Normal vs STTC height test p-value: 0.000002
+Normal vs MI height test p-value: 0.065118
+Normal vs CD height test p-value: 0.338170
+Normal vs HYP height test p-value: 0.019416
 
-You can ask questions. This isn't a "bonus points if they ask questions" thing, just that we'll answer what we can if you need us. Like we would when working together.
+Normal vs STTC weight test p-value: 0.000001
+Normal vs MI weight test p-value: 0.330591
+Normal vs CD weight test p-value: 0.035482
+Normal vs HYP weight test p-value: 0.000007
+```
 
-We like to have a real work example work flow, we wencorage you to do a pull request and send the pull request for evaluation. 
+The results indicate that height and weight is significantly different in normal people compared to people diagnosed with STTC. Also, weight is significantly different in normal people compared to people diagnosed with HYP. **These results can be used to calculate risk factor for normal people with wearable devices, possibly increasing the market share of the company**.
 
-You can request more information/data, but we'd rather you didn't. If you really need more, let us know, but there'd need to be a compelling reason for it.
-## Summary
-We want to see what it's like to work with you, and the quality of work you'd produce. This is a chance for both sides to see how that is.
+# Diagnosis Classification
 
-We will be making a decision based on these tests, so do give it your best.
+The dataset contains diagnosis superclasses, and the signals and the annotations can be used to form a classification task. This is a multi-class classifcation task. There are some deep learning methods to solve this task. I have worked in the field of applied deep learning, however, I decided to take another route here. I extracted individual heartbeats and padded or cut them to have 85 values for each heartbeat. I then used PCA dimension reduction alongside the SVM classifier to solve this task. One-vs-rest method is used in order to be able to employ the SVM classifier. This setup can have its own benefits because **after the training is done and it is time to make predictions, the only computation that has to be done is a matrix multiplication and a few weighted sums. This can be extremely computationaly efficient compared to deep learning methods, and can be used as an early and inexact diagnosis on an embedded device**. I have used a linear SVM classifier because using RBF SVM takes too long and doesn't fit into the time frame of the project. The accuracies for 5-fold classification are `78.195, 76.317, 76.363, 76.441, 75.392` with a mean value of `76.541`. Is it more likely that higher accuracies can be reached if non-linear SVM is used.
 
-Thanks for giving this a go, we can't wait to see what you come up with.
+# Feature Visualization
 
+We can visualize the feature space of the features that we have extracted from the individual heartbeats. I have used UMAP to visualize the feature space. The figure is shown in `Image 3`. 
+
+![Image3](feature-visualization.png)
+> Image 3: Visualization of the feature space with colorization based on superclasses.
+
+# Final Words
+
+Working with ECG data is quite exciting for me. Preprocessing and using the right filters is an important step in ECG diagnosis. As a general rule, higher accuracies come with greater runtimes, specially when using deep learning. Having a classifier with a high accuracy is great when you have the resources, however, when running on wearable devices, a much lighter and faster solution must be deployed. Deeper and better analysis can be done, but keeping the interview project timeline is of importance too.
