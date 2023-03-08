@@ -1,0 +1,15 @@
+artifact_uri: file:///work/work_arne/projects/idoven/pyc_sync/Idoven-Data-Scientist/mlruns/1/fe49d04b674b4b95af9eb209b95fd173/artifacts
+end_time: 1677082667303
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: deleted
+name: ''
+run_id: fe49d04b674b4b95af9eb209b95fd173
+run_uuid: fe49d04b674b4b95af9eb209b95fd173
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1677082608103
+status: 3
+tags: []
+user_id: arne

@@ -1,0 +1,4 @@
+artifact_location: file:///work/work_arne/projects/idoven/pyc_sync/Idoven-Data-Scientist/mlruns/1
+experiment_id: '1'
+lifecycle_stage: active
+name: PTB_XL
