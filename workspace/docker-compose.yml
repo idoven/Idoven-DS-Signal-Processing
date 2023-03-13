@@ -1,0 +1,18 @@
+version: '3'
+services:
+  notebook:
+    image: tensorflow/tensorflow:nightly-gpu-jupyter
+    ports:
+      - 8888:8888
+    volumes:
+      - .:/tf
+    command: jupyter notebook --port 8888 --ip 0.0.0.0 --allow-root --NotebookApp.token='' --NotebookApp.password=''
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
+
+
