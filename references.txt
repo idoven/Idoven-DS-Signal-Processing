@@ -1,0 +1,36 @@
+Reference List 
+
+########################
+
+Below is a numbered list of referenced used throughout the text.
+Thes einclude literature articles that support observations in the main jupyter notebook 
+
+########################
+
+[1] Granada, Juan, et al. "Incidence and predictors of atrial flutter in the general population." Journal of the American College of Cardiology 36.7 (2000): 2242-2246.]
+
+[2] Wagner, Patrick & Strodthoff, Nils & Bousseljot, Ralf-Dieter & Kreiseler, Dieter & Lunze, Fatima & Samek, Wojciech & Schaeffter, Tobias. (2020). 
+PTB-XL, a large publicly available electrocardiography dataset. Scientific Data. 7. 154. 10.1038/s41597-020-0495-6. 
+
+[3] Hamilton, Pat. "Open source ECG analysis." Computers in cardiology. IEEE, 2002.
+
+[4] Carson, Peter E., et al. "The influence of atrial fibrillation on prognosis in mild to moderate heart failure. 
+The V-HeFT Studies. The V-HeFT VA Cooperative Studies Group." Circulation 87.6 Suppl (1993): VI102-10.
+
+[5] Sridhar, Niranjan, et al. "Deep learning for automated sleep staging using instantaneous heart rate." NPJ digital medicine 3.1 (2020): 106.
+
+[6] [Kleiger, Robert E., Phyllis K. Stein, and J.Thomas Bigger Jr. "Heart rate variability: measurement and clinical utility." 
+Annals of Noninvasive Electrocardiology 10.1 (2005): 88-101.
+
+[7] Murthy, Vrudhula K., et al. "Clinical usefulness of ECG frequency spectrum analysis." 
+The Second Annual Symposium on Computer Application in Medical Care, 1978. Proceedings.. IEEE, 1978
+
+[8] Takahashi, Yoshihide, et al. "Organization of frequency spectra of atrial fibrillation: relevance to radiofrequency catheter ablation." 
+Journal of cardiovascular electrophysiology 17.4 (2006): 382-388.
+
+[9] A. D. Rasamoelina, F. Adjailia and P. Sinčák, "A Review of Activation Function for Artificial Neural Network," 
+2020 IEEE 18th World Symposium on Applied Machine Intelligence and Informatics (SAMI), Herlany, Slovakia, 2020, pp. 281-286, doi: 10.1109/SAMI48414.2020.9108717.
+
+
+
+
