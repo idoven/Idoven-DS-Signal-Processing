@@ -1,0 +1,25 @@
+{
+    "path":{
+        "physionet":"/home/vicente/Documents/Other/Idoven-Data-Scientist/physionet.org/files/ptb-xl/1.0.2/",
+        "annotations":"/home/vicente/Documents/Other/Idoven-Data-Scientist/annotations/"
+    },
+    
+    "file":{
+        "ptbxl_database":"/home/vicente/Documents/Other/Idoven-Data-Scientist/physionet.org/files/ptb-xl/1.0.2/ptbxl_database.csv",
+        "ptbxl_database_processed":"/home/vicente/Documents/Other/Idoven-Data-Scientist/database_processed.csv",
+        "data_model":"/home/vicente/Documents/Other/Idoven-Data-Scientist/data_model.csv",
+        "scp_statement":"/home/vicente/Documents/Other/Idoven-Data-Scientist/physionet.org/files/ptb-xl/1.0.2/scp_statements.csv"
+
+    },
+
+    "var":{
+        "fs":100,
+        "order":3,
+        "low_cut":0.5,
+        "high_cut":15
+    },
+
+    "info":{
+        "fs":"Sampling frequency in Hz of the EKG"
+    }
+}
