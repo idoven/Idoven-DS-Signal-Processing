@@ -1,0 +1,10 @@
+autopep8==2.0.0
+ecg-plot==0.2.8
+flake8==5.0.4
+heartpy==1.2.7
+ipykernel==6.17.1
+mypy==0.991
+neurokit2==0.2.2
+pip-autoremove==0.10.0
+pip-chill==1.0.1
+wfdb==4.0.0

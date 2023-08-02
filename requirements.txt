@@ -1,0 +1,5 @@
+ecg-plot==0.2.8
+heartpy==1.2.7
+ipykernel==6.17.1
+neurokit2==0.2.2
+wfdb==4.0.0
