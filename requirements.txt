@@ -1,0 +1,6 @@
+pandas
+wfdb
+seaborn
+ecg-plot
+matplotlib
+scikit-learn
