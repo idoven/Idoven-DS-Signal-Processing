@@ -4,3 +4,4 @@ seaborn
 ecg-plot
 matplotlib
 scikit-learn
+heartpy
