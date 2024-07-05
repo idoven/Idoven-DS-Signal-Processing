@@ -1,0 +1,12 @@
+version: '3'
+services:
+  jupyter:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./SignalProcessing.ipynb:/app/SignalProcessing.ipynb
+      - ./ptbxl_database.csv:/app/ptbxl_database.csv
+      - ./data:/app/data
+    environment:
+      - PYTHONPATH=/app
